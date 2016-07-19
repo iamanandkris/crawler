@@ -26,3 +26,5 @@ libraryDependencies +="com.typesafe.akka" %%  "akka-http-core"                  
 libraryDependencies +="com.typesafe.akka" %%  "akka-http-experimental"             % akkaVersion
 
 libraryDependencies +="com.typesafe.akka" %%  "akka-http-spray-json-experimental"  % akkaVersion
+
+libraryDependencies +="com.github.romix.akka" %% "akka-kryo-serialization" % "0.4.1"

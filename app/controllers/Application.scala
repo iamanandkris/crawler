@@ -1,15 +1,12 @@
 package controllers
 
-import controllers.indexing.IndexController
-import controllers.user.UserController
-import crawlerinformation.BoxOffice.CreateEvent
-import play.api.mvc._
-import akka.actor.{ActorSystem, Actor, Props, ActorRef}
+
+import akka.actor.{ActorSystem,  Props, ActorRef}
 import akka.event.Logging
 import akka.stream.ActorMaterializer
 import akka.util.Timeout
-import com.typesafe.config.{Config, ConfigFactory}
-import crawlerinformation.{ReindexInfo, SearchInfo}
+import com.typesafe.config.{ ConfigFactory}
+import crawlerinformation.{CreateEvent, ReindexInfo, SearchInfo}
 import play.api.libs.json.{JsResult, Json}
 import play.api.mvc.{Action, Controller}
 import remotelookup.RemoteLookupProxy
@@ -17,8 +14,6 @@ import scala.concurrent.Promise
 import akka.pattern.ask
 import scala.concurrent.duration._
 
-import scala.concurrent.duration.{FiniteDuration, Duration}
-import scala.util.Try
 import scala.util.Success
 import scala.util.Failure
 

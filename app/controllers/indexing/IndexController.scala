@@ -5,7 +5,7 @@ import akka.event.Logging
 import akka.stream.ActorMaterializer
 import akka.util.Timeout
 import com.typesafe.config.{Config, ConfigFactory}
-import crawlerinformation.{ReindexInfo, SearchInfo}
+import crawlerinformation.{CreateEvent, ReindexInfo, SearchInfo}
 import play.api.libs.json.{JsResult, Json}
 import play.api.mvc.{Action, Controller}
 import remotelookup.RemoteLookupProxy
@@ -57,8 +57,6 @@ trait IndexController extends Controller {
 
     prom.future.map(response =>Ok(response))
   }
-
-  case class CreateEvent(name: String, tickets: Int)
 
   def search = Action.async(parse.json) { request =>
     val t: JsResult[SearchInfo] = request.body.validate[SearchInfo]
